@@ -51,7 +51,7 @@ export default class Auto extends Component {
 
     //distance for dealder
     let distance = 0;
-    if (dLat, dLon) distance = getDistance(dLat,dLon,userLat,userLon).toFixed(1) + ' км. ';
+    if (dLat && dLon) distance = getDistance(dLat, dLon, userLat, userLon).toFixed(1) + ' км.';
     this.distance = distance;
 
     // form dealer adress
@@ -88,7 +88,7 @@ export default class Auto extends Component {
     let dealerLink;
 
     if (dealerUrl) {
-      dealerLink = <a target="_blank" href={dealerUrl} className="auto__address"><span>{dealerAddress}</span></a>;
+      dealerLink = <a target="_blank" rel="noopener noreferrer" href={dealerUrl} className="auto__address"><span>{dealerAddress}</span></a>;
     }
     else dealerLink = <span className="auto__address">{dealerAddress}</span>;
 

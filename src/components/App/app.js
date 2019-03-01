@@ -9,13 +9,15 @@ export default class App extends Component {
 
 
   state = {
-    cars: cars || {}
+    cars: cars || {},
+    userCoords: ['55.7536232', '37.6199775']
   }
 
   render() {
+    let {cars, userCoords} = this.state;
     return (
       <div className="app">
-        <ListAuto items={cars}/>
+        <ListAuto items={cars} userCoords={userCoords}/>
       </div>
     )
   }

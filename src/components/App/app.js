@@ -73,8 +73,8 @@ export default class App extends Component {
     let {filteredCars, userCoords} = this.state;
 
     return (
-      <div className="app">
-        <div className="app__top-panel">
+      <div className='app'>
+        <div className='app__top-panel'>
           <Sort onSortToggle={this.onSortToggle}/>
           <Search onSearchQuery={this.onSearchQuery}/>
         </div>

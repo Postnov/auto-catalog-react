@@ -25,7 +25,7 @@ export default class ListAuto extends Component {
     const cars = items.map(el => {
       return (
         <div
-          className="list-auto__item"
+          className='list-auto__item'
           key={el.id}
           ref={'auto'+ el.id}
           style={{minHeight: minHeight + 'px'}}>
@@ -42,14 +42,14 @@ export default class ListAuto extends Component {
       return (
         <Masonry
           breakpointCols={{default: 4, 1100: 3, 700: 2, 500: 1}}
-          className="masonry-grid"
-          columnClassName="masonry-grid__col">
+          className='masonry-grid'
+          columnClassName='masonry-grid__col'>
           {cars}
         </Masonry>
       );
     }else {
       return (
-        <p class="list-auto__empty">
+        <p class='list-auto__empty'>
           По вашему запросу автомобили не найдены. Измените или очистите запрос.
         </p>
       );

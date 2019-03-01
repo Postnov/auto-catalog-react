@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import getDistance from '../../utils/getDistance';
+import getNumEnding from '../../utils/getNumEnding';
 
 import './auto.css';
 
@@ -70,13 +71,17 @@ export default class Auto extends Component {
       );
     });
 
+    //features ending btn
+    let ending = getNumEnding(carFeatures.length - 3,
+      ['особенность', 'особенности', 'особеностей']);
+
     //button for show/hide features
     let btnManageShowList;
 
     if (showAll) {
       btnManageShowList = <span className="auto__show-more" onClick={() => this.setShowFeatures(false)}>скрыть</span>;
     }else {
-      btnManageShowList = <span className="auto__show-more" onClick={() => this.setShowFeatures(true)}> ещe {carFeatures.length - 3} особенностей</span>;
+      btnManageShowList = <span className="auto__show-more" onClick={() => this.setShowFeatures(true)}> ещe {carFeatures.length - 3} {ending}</span>;
     };
 
     //dealder link

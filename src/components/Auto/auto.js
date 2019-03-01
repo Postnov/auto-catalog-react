@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import getDistance from '../../utils/getDistance';
 
+import './auto.css';
+
 export default class Auto extends Component {
 
   render() {

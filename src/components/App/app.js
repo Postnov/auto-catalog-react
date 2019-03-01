@@ -4,6 +4,7 @@ import Sort from '../Sort';
 import Search from '../Search';
 import cars from '../../assets/cars';
 
+import './app.css';
 export default class App extends Component {
 
 

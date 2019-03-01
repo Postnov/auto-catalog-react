@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Auto from '../Auto';
 
+import './list-auto.css';
+
 const ListAuto = ({items}) => {
 
 

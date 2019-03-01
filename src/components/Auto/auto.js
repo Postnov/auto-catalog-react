@@ -86,14 +86,9 @@ export default class Auto extends Component {
     };
 
     //dealder link
-    let dealerLink;
+    let dealerAddressLink = <a target="_blank" rel="noopener noreferrer" href={dealerUrl} className="auto__address"><span>{dealerAddress}</span></a>;
 
-    if (dealerUrl) {
-      dealerLink = <a target="_blank" rel="noopener noreferrer" href={dealerUrl} className="auto__address"><span>{dealerAddress}</span></a>;
-    }
-    else dealerLink = <span className="auto__address">{dealerAddress}</span>;
-
-
+    let dealerAddressSpan = <span className="auto__address">{dealerAddress}</span>;
 
 
     return (
@@ -124,7 +119,7 @@ export default class Auto extends Component {
             </g>
           </svg>
 
-          {dealerLink}
+          {dealerUrl ? dealerAddressLink : dealerAddressSpan}
         </div>
     </div>
     );

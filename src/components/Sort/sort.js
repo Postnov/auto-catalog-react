@@ -5,27 +5,27 @@ import './sort.css';
 const Sort = ({switchSearch}) => {
 
   return (
-    <div class="sort">
-      <span class="sort__title">Сортировать:</span>
-      <label class="sort__input-item" >
+    <div className="sort">
+      <span className="sort__title">Сортировать:</span>
+      <label className="sort__input-item" >
           <input
             onChange={switchSearch}
             defaultChecked
-            class="sort__input"
+            className="sort__input"
             type="radio"
             value="price"
             name="sort"/>
-          <span class="sort__label">По цене</span>
+          <span className="sort__label">По цене</span>
       </label>
 
-      <label class="sort__input-item">
+      <label className="sort__input-item">
           <input
             onChange={switchSearch}
-            class="sort__input"
+            className="sort__input"
             type="radio"
             value="distance"
             name="sort"/>
-          <span class="sort__label">По удаленности</span>
+          <span className="sort__label">По удаленности</span>
       </label>
     </div>
   )

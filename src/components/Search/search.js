@@ -4,10 +4,10 @@ import './search.css';
 
 const Search = ({onSearch}) => {
     return (
-      <div class="search">
+      <div className="search">
         <input
           type="text"
-          class="search__input"
+          className="search__input"
           onChange={onSearch}
           defaultValue=""
           placeholder="Поиск по авто, названию, адресу, городу филиала"/>

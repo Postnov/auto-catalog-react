@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import './sort.css';
 
@@ -28,7 +28,7 @@ const Sort = ({onSortToggle}) => {
           <span className="sort__label">По удаленности</span>
       </label>
     </div>
-  )
+  );
 };
 
 export default Sort;

@@ -46,11 +46,9 @@ export default class App extends Component {
       query: e.target.value,
       filteredCars: this.searchFilter(cars, e.target.value)
     });
-  }
-
-  switchSort = (items, type) => {
-    return items.slice().sort((a,b) => a[type] - b[type]);
   };
+
+  switchSort = (items, type) => items.slice().sort((a,b) => a[type] - b[type]);
 
   searchFilter = (items, query) => {
     let filteredCars = items.filter(el => {
@@ -66,11 +64,8 @@ export default class App extends Component {
 
       let allValues = [modelName, kitName, address, city, name].join(' ');
 
-      console.log(query);
-
       return allValues.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
-
     return filteredCars;
   }
 
@@ -79,9 +74,6 @@ export default class App extends Component {
 
     return (
       <div className="app">
-
-
-
         <div className="app__top-panel">
           <Sort onSortToggle={this.onSortToggle}/>
           <Search onSearchQuery={this.onSearchQuery}/>
@@ -92,6 +84,6 @@ export default class App extends Component {
           userCoords={userCoords}
           setDialerDistance={this.setDialerDistance}/>
       </div>
-    )
-  }
-}
+    );
+  };
+};

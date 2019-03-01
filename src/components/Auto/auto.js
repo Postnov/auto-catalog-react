@@ -51,6 +51,7 @@ export default class Auto extends Component {
 
     //distance for dealder
     let distance = 0;
+
     if (dLat && dLon) distance = getDistance(dLat, dLon, userLat, userLon).toFixed(1);
     this.distance = distance;
 
@@ -61,7 +62,7 @@ export default class Auto extends Component {
     if (distance) dealerAddress += distance + ' км., ';
     if (dealerName) dealerAddress += dealerName + ', ';
     if (dealerCity) dealerAddress += dealerCity + ', ';
-    if (dealerStreet) dealerAddress += dealerStreet + '';
+    if (dealerStreet) dealerAddress += dealerStreet;
 
     // features and set count showing
     let countFeatures = showAll ? carFeatures.length : 3;
@@ -80,13 +81,31 @@ export default class Auto extends Component {
     let btnManageShowList;
 
     if (showAll) {
-      btnManageShowList = <span className="auto__show-more" onClick={() => this.setShowFeatures(false)}>скрыть</span>;
+      btnManageShowList = (
+        <span
+          className="auto__show-more"
+          onClick={() => this.setShowFeatures(false)}>
+          скрыть</span>
+      );
     }else {
-      btnManageShowList = <span className="auto__show-more" onClick={() => this.setShowFeatures(true)}> ещe {carFeatures.length - 3} {ending}</span>;
+      btnManageShowList = (
+        <span
+          className="auto__show-more"
+          onClick={() => this.setShowFeatures(true)}>
+          ещe {carFeatures.length - 3} {ending}</span>
+      );
     };
 
     //dealder link
-    let dealerAddressLink = <a target="_blank" rel="noopener noreferrer" href={dealerUrl} className="auto__address"><span>{dealerAddress}</span></a>;
+    let dealerAddressLink = (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={dealerUrl}
+        className="auto__address">
+        <span>{dealerAddress}</span>
+      </a>
+    );
 
     let dealerAddressSpan = <span className="auto__address">{dealerAddress}</span>;
 
@@ -104,12 +123,14 @@ export default class Auto extends Component {
         </header>
         <div className="auto__body">
           {features ? <ul className="auto__features"> {features} </ul> : null}
-
           {carFeatures.length > 3 ? btnManageShowList : null}
         </div>
 
         <div className="auto__footer">
-          <svg className="auto__loc-icon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            className="auto__loc-icon"
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg">
             <g fillRule="evenodd">
               <path d="m249.1 82c54.4 0 113.1 33.7 114.9 124.2 0
               78.4-88.8 175.8-109.7 198.5-1.7 1.8-6.9 1.8-8.7

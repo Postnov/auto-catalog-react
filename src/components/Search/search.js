@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import './search.css';
 
@@ -12,7 +12,7 @@ const Search = ({onSearchQuery}) => {
           defaultValue=""
           placeholder="Поиск по авто, названию, адресу, городу филиала"/>
       </div>
-    )
+    );
 };
 
 export default Search;

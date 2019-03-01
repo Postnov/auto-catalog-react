@@ -31,6 +31,12 @@
   list-style: none;
 }
 
+.list-auto__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
 .list-auto__empty {
   margin-top: 100px;
   text-align: center;

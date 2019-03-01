@@ -29,6 +29,12 @@ export default class App extends Component {
     let {cars, userCoords} = this.state;
     return (
       <div className="app">
+
+        <div className="app__top-panel">
+          <Sort />
+          <Search />
+        </div>
+
         <ListAuto
           items={cars}
           userCoords={userCoords}

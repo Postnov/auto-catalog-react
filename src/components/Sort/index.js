@@ -1,2 +1,2 @@
-import Sort from 'sort';
+import Sort from './sort';
 export default Sort;

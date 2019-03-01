@@ -1,2 +1,2 @@
-import ListAuto from 'list-auto';
+import ListAuto from './list-auto';
 export default ListAuto;

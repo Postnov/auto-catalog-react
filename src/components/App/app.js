@@ -51,10 +51,10 @@ export default class App extends Component {
 
       let allValues = [modelName, kitName, address, city, name].join(' ');
 
-      return allValues.toLowerCase().indexOf(searchQuery.toLowerCase) !== -1;
+      return allValues.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
     });
 
-    // this.setState({filteredCars});
+    this.setState({filteredCars});
   }
 
   render() {

@@ -104,7 +104,7 @@ export default class Auto extends Component {
             alt={`Изображение авто: ${carImg}`}
             className="auto__img" />
 
-          <p className="auto__title">{modelName + kitName}</p>
+          <p className="auto__title">{modelName} {kitName}</p>
           <p className="auto__price">{carPrice.toLocaleString()} ₽</p>
         </header>
         <div className="auto__body">

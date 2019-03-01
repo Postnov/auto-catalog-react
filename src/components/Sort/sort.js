@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 
 import './sort.css';
 
-const Sort = ({switchSort}) => {
+const Sort = ({onSortToggle}) => {
 
   return (
     <div className="sort">
       <span className="sort__title">Сортировать:</span>
       <label className="sort__input-item" >
           <input
-            onChange={switchSort}
+            onChange={onSortToggle}
             defaultChecked
             className="sort__input"
             type="radio"
@@ -20,7 +20,7 @@ const Sort = ({switchSort}) => {
 
       <label className="sort__input-item">
           <input
-            onChange={switchSort}
+            onChange={onSortToggle}
             className="sort__input"
             type="radio"
             value="distance"

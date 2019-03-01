@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 
 import './search.css';
 
-const Search = ({onSearch}) => {
+const Search = ({onSearchQuery}) => {
     return (
       <div className="search">
         <input
           type="text"
           className="search__input"
-          onChange={onSearch}
+          onChange={onSearchQuery}
           defaultValue=""
           placeholder="Поиск по авто, названию, адресу, городу филиала"/>
       </div>

@@ -51,13 +51,14 @@ export default class Auto extends Component {
 
     //distance for dealder
     let distance = 0;
-    if (dLat && dLon) distance = getDistance(dLat, dLon, userLat, userLon).toFixed(1) + ' км.';
+    if (dLat && dLon) distance = getDistance(dLat, dLon, userLat, userLon).toFixed(1);
     this.distance = distance;
+
 
     // form dealer adress
     let dealerAddress = '';
 
-    if (distance) dealerAddress += distance;
+    if (distance) dealerAddress += distance + ' км., ';
     if (dealerName) dealerAddress += dealerName + ', ';
     if (dealerCity) dealerAddress += dealerCity + ', ';
     if (dealerStreet) dealerAddress += dealerStreet + '';

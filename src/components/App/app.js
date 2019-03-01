@@ -10,7 +10,7 @@ export default class App extends Component {
 
   state = {
     cars: cars || {},
-    userCoords: ['55.7536232', '37.6199775']
+    userCoords: ['55.7536232', '37.6199775'],
   };
 
   setDialerDistance = (distance, carId) => {
@@ -18,9 +18,17 @@ export default class App extends Component {
 
     let newCars = cars.map(el => {
       let item = el;
-      if (item.id === carId) item.dealer.distance = distance;
-      return el;
+      if (item.id === carId) item.distance = distance;
+      return item;
     });
+
+    this.setState({cars: newCars});
+  };
+
+
+  switchSearch = (e) => {
+    let filter = e.target.value;
+    let newCars = cars.slice().sort((a,b) => a[filter] - b[filter]);
 
     this.setState({cars: newCars});
   };
@@ -31,7 +39,7 @@ export default class App extends Component {
       <div className="app">
 
         <div className="app__top-panel">
-          <Sort />
+          <Sort switchSearch={this.switchSearch}/>
           <Search />
         </div>
 

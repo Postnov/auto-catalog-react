@@ -28,7 +28,7 @@ export default class App extends Component {
   };
 
 
-  switchSearch = (e) => {
+  switchSort = (e) => {
     let filter = e.target.value;
     let filteredCars = cars.slice().sort((a,b) => a[filter] - b[filter]);
 
@@ -63,7 +63,7 @@ export default class App extends Component {
       <div className="app">
 
         <div className="app__top-panel">
-          <Sort switchSearch={this.switchSearch}/>
+          <Sort switchSort={this.switchSort}/>
           <Search onSearch={this.onSearch}/>
         </div>
 

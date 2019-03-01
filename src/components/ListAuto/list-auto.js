@@ -41,14 +41,14 @@ export default class ListAuto extends Component {
       );
     });
 
-    return (
+    return cars.length ? (
       <Masonry
         breakpointCols={{default: 4, 1100: 3, 700: 2, 500: 1}}
         className="masonry-grid"
         columnClassName="masonry-grid__col">
         {cars}
       </Masonry>
-    )
+    ) : <p class="list-auto__empty"> По вашему запросу автомобили не найдены. Измените или очистите запрос.</p>
   }
 
 }

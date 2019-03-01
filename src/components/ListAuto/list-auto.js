@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Auto from '../Auto';
+import Masonry from 'react-masonry-css';
 
 import './list-auto.css';
 
@@ -18,9 +19,12 @@ const ListAuto = ({items,userCoords,setDialerDistance}) => {
     });
 
     return (
-      <div className="list-auto">
+      <Masonry
+        breakpointCols={{default: 4, 1100: 3, 700: 2, 500: 1}}
+        className="masonry-grid"
+        columnClassName="masonry-grid__col">
         {cars}
-      </div>
+      </Masonry>
     )
 }
 

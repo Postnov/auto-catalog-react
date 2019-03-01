@@ -3,13 +3,16 @@ import Auto from '../Auto';
 
 import './list-auto.css';
 
-const ListAuto = ({items,userCoords}) => {
+const ListAuto = ({items,userCoords,setDialerDistance}) => {
 
 
     const cars = items.map(el => {
       return (
         <div className="list-auto__item" key={el.id}>
-          <Auto car={el} userCoords={userCoords}/>
+          <Auto
+            car={el}
+            userCoords={userCoords}
+            setDialerDistance={setDialerDistance}/>
         </div>
       );
     });

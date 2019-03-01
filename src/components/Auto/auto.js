@@ -9,12 +9,21 @@ export default class Auto extends Component {
     showAll: false
   }
 
+  distance = 0;
+
   setShowFeatures = (showState) => {
     this.setState({
-      showAll: showState
+      showAll: showState,
     });
   };
 
+
+  componentDidMount() {
+    let {car, setDialerDistance} = this.props;
+    let distance = this.distance;
+
+    setDialerDistance(distance, car.id);
+  }
 
 
   render() {
@@ -42,6 +51,7 @@ export default class Auto extends Component {
     //distance for dealder
     let distance = 0;
     if (dLat, dLon) distance = getDistance(dLat,dLon,userLat,userLon).toFixed(1) + ' км. ';
+    this.distance = distance;
 
     // form dealer adress
     let dealerAddress = '';

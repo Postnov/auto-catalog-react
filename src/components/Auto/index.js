@@ -16,6 +16,8 @@ export default class Auto extends Component {
   };
 
   render() {
+    let showFeaturesAmount = 3;
+
     let {showAll} = this.state;
     let {
       car: {
@@ -43,7 +45,7 @@ export default class Auto extends Component {
     if (dealerStreet) dealerAddress += dealerStreet;
 
     // features and set count showing
-    let countFeatures = showAll ? carFeatures.length : 3;
+    let countFeatures = showAll ? carFeatures.length : showFeaturesAmount;
 
     let features = carFeatures.slice(0, countFeatures).map((el, index) => {
       return (
@@ -52,7 +54,7 @@ export default class Auto extends Component {
     });
 
     //features ending btn
-    let ending = getNumEnding(carFeatures.length - 3,
+    let ending = getNumEnding(carFeatures.length - showFeaturesAmount,
       ['особенность', 'особенности', 'особеностей']);
 
     //button for show/hide features
@@ -70,7 +72,7 @@ export default class Auto extends Component {
         <span
           className='auto__show-more'
           onClick={() => this.setShowFeatures(true)}>
-          ещe {carFeatures.length - 3} {ending}</span>
+          ещe {carFeatures.length - showFeaturesAmount} {ending}</span>
       );
     };
 

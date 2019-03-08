@@ -77,7 +77,7 @@ export default class ListAuto extends Component {
       );
     }else {
       return (
-        <p class='list-auto__empty'>
+        <p className='list-auto__empty'>
           По вашему запросу автомобили не найдены. Измените или очистите запрос.
         </p>
       );

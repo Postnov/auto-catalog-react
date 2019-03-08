@@ -11,7 +11,7 @@ export default class ListAuto extends Component {
     items: this.props.items
   };
 
-  componentDidMount() {
+  setItemsDistance() {
     let items = this.props.items.slice();
 
     items.map(el => {
@@ -24,18 +24,35 @@ export default class ListAuto extends Component {
       return el;
     });
 
-    this.props.setDialerDistance(items)
-    // window.addEventListener('load', () => {});
+    this.props.setDialerDistance(items);
+  };
+
+  componentDidMount() {
+    // count and set item distance
+    this.setItemsDistance();
+
+    // calculation max height from equal item height
+    window.addEventListener('load', () => {
+      // get only html node
+      let items = Object.values(this.refs)
+        .filter(el => !el.props)
+        .map(el => el.offsetHeight);
+
+      let minHeight = Math.max.apply(null, items);
+
+      this.setState({minHeight});
+    });
   };
 
   render() {
-    let {items,minHeight} = this.state;
+    let {items, minHeight} = this.state;
 
     const cars = items.map(el => {
       return (
         <div
           className='list-auto__item'
           key={el.id}
+          ref={'auto-html-tag'+ el.id}
           style={{minHeight: minHeight + 'px'}}>
 
           <Auto

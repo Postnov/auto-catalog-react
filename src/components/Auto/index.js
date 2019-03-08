@@ -36,13 +36,15 @@ export default class Auto extends Component {
       },
     } = this.props;
 
-    // form dealer adress
-    let dealerAddress = '';
 
-    if (distance) dealerAddress += distance + ' км., ';
-    if (dealerName) dealerAddress += dealerName + ', ';
-    if (dealerCity) dealerAddress += dealerCity + ', ';
-    if (dealerStreet) dealerAddress += dealerStreet;
+    // form dealer adress
+    if (distance) distance += ' км.';
+
+    let dealerAddress = filterDealerAddress`${distance} ${dealerName} ${dealerCity} ${dealerStreet}`;
+
+    function filterDealerAddress(strings, ...values) {
+      return values.filter(el => el).join(', ');
+    };
 
     // features and set count showing
     let countFeatures = showAll ? carFeatures.length : showFeaturesAmount;

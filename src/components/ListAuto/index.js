@@ -1,39 +1,46 @@
 import React, {Component} from 'react';
 import Auto from '../Auto';
 import Masonry from 'react-masonry-css';
+import getDistance from '../../utils/getDistance';
 
 import './index.css';
 
 export default class ListAuto extends Component {
   state = {
-    minHeight: 0
+    minHeight: 0,
+    items: this.props.items
   };
 
   componentDidMount() {
-    window.addEventListener('load', () => {
-      let listItems = Object.values(this.refs).map(el => el.offsetHeight),
-          minHeight = Math.max.apply(null, listItems);
+    let items = this.props.items.slice();
 
-      this.setState({minHeight});
+    items.map(el => {
+      let {dealer: {latitude = null, longitude = null} = {}} = el;
+      let [userLat, userLon] = this.props.userCoords;
+
+      if (latitude && longitude) {
+        el.distance = getDistance(latitude, longitude, userLat, userLon).toFixed(1);
+      }
+      return el;
     });
+
+    this.props.setDialerDistance(items)
+    // window.addEventListener('load', () => {});
   };
 
   render() {
-    let {items,userCoords,setDialerDistance} = this.props,
-        {minHeight} = this.state;
+    let {items,minHeight} = this.state;
 
     const cars = items.map(el => {
       return (
         <div
           className='list-auto__item'
           key={el.id}
-          ref={'auto'+ el.id}
           style={{minHeight: minHeight + 'px'}}>
 
           <Auto
-            car={el}
-            userCoords={userCoords}
-            setDialerDistance={setDialerDistance}/>
+            ref={'auto-component'+ el.id}
+            car={el}/>
         </div>
       );
     });

@@ -16,15 +16,7 @@ export default class App extends Component {
     filter: 'price'
   };
 
-  setDialerDistance = (distance, carId) => {
-    let {cars} = this.state;
-
-    let newCars = cars.map(el => {
-      let item = el;
-      if (item.id === carId) item.distance = distance;
-      return item;
-    });
-
+  setDialerDistance = (newCars) => {
     this.setState({cars: newCars});
   };
 
@@ -62,9 +54,9 @@ export default class App extends Component {
         }
       } = el;
 
-      let allValues = [modelName, kitName, address, city, name].join(' ');
+      let fullStr = `${modelName}, ${kitName}, ${address}, ${city}, ${name}`;
 
-      return allValues.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      return fullStr.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
     return filteredCars;
   }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import getDistance from '../../utils/getDistance';
 import getNumEnding from '../../utils/getNumEnding';
 
 import './index.css';
@@ -10,22 +9,11 @@ export default class Auto extends Component {
     showAll: false
   }
 
-  distance = 0;
-
   setShowFeatures = (showState) => {
     this.setState({
       showAll: showState,
     });
   };
-
-
-  componentDidMount() {
-    let {car, setDialerDistance} = this.props;
-    let distance = this.distance;
-
-    setDialerDistance(distance, car.id);
-  }
-
 
   render() {
     let {showAll} = this.state;
@@ -36,25 +24,15 @@ export default class Auto extends Component {
         images: [carImg],
         price: carPrice,
         features: carFeatures,
+        distance,
         dealer: {
           name:dealerName,
           city: dealerCity,
           address:dealerStreet,
-          latitude:dLat = null,
-          longitude:dLon = null,
           url:dealerUrl
         } = {},
       },
-      userCoords: [userLat, userLon]
-
     } = this.props;
-
-    //distance for dealder
-    let distance = 0;
-
-    if (dLat && dLon) distance = getDistance(dLat, dLon, userLat, userLon).toFixed(1);
-    this.distance = distance;
-
 
     // form dealer adress
     let dealerAddress = '';

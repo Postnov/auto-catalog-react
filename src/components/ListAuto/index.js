@@ -44,6 +44,10 @@ export default class ListAuto extends Component {
     });
   };
 
+  componentWillUnmount() {
+    window.removeEventListener('load');
+  }
+
   render() {
     let {items, minHeight} = this.state;
 

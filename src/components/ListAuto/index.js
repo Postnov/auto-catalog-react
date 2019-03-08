@@ -7,8 +7,7 @@ import './index.css';
 
 export default class ListAuto extends Component {
   state = {
-    minHeight: 0,
-    items: this.props.items
+    minHeight: 0
   };
 
   setItemsDistance() {
@@ -49,7 +48,8 @@ export default class ListAuto extends Component {
   }
 
   render() {
-    let {items, minHeight} = this.state;
+    let {items} = this.props;
+    let {minHeight} = this.state;
 
     const cars = items.map(el => {
       return (
